@@ -14,6 +14,18 @@
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.9s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .container {
             max-width: 800px;
@@ -142,45 +154,25 @@
             <div class="points">Pontos: 15</div>
             <h2>Pergunta 1:</h2>
             <p>Um Carro viaja de Cidade A para Cidade B a uma velocidade média de 60 km/h e retorna para Cidade A a uma velocidade média de 80 km/h. Se o tempo total de viagem for de 7 horas, qual é a distância entre Cidade A e Cidade B?</p>
-            <button class="play-sound-button" onclick="playSound('sound1')"><i class="icon fas fa-volume-up"></i></button>
+            <button class="play-sound-button" onclick="playSound('sound2')"><i class="icon fas fa-volume-up"></i></button>
             <audio id="sound1" src="TEST1.mp3"></audio>
-            <p class="resolution"><strong>Resolução:</strong> Deixe a distância entre Cidade A e Cidade B ser 
-�
-d quilômetros.
-Tempo necessário para viajar de A para B = 
-�
-/
-60
-d/60 horas
-Tempo necessário para viajar de B para A = 
-�
-/
-80
-d/80 horas
+            <p class="resolution"><strong>Resolução:</strong> Deixe a distância entre Cidade A e Cidade B ser d quilometros 
 
-O tempo total de viagem é 7 horas:
-d
-/
-60
-+
-d
-/
-80
-=
-7
-d/60+d/80=7
-
-Para resolver esta equação, você pode encontrar um denominador comum e então resolver para 
-�
-d.
-
-Depois de resolver a equação, você encontrará que 
-�
-=
-240
-d=240 quilômetros.
-
-Portanto, a distância entre Cidade A e Cidade B é de 240 quilômetros.</p>
+                Tempo necessário para viajar de A para B = 60d/60 horas 
+                
+                Tempo necessário para viajar de B para A = 80d/80 horas 
+                
+                O tempo total de viagem é 7 horas: d/60+d/80=7 
+                
+                 
+                
+                Para resolver esta equação, você pode encontrar um denominador comum e então resolver para d. 
+                
+                Depois de resolver a equação, você encontrará que d=240 quilômetros. 
+                
+                Portanto, a distância entre Cidade A e Cidade B é de 240 quilômetros 
+                
+                 </p>
         </div>
 
         <div class="question easy">
@@ -259,66 +251,13 @@ Como
             <p>Um tanque cilíndrico tem um diâmetro de 8 metros e uma altura de 10 metros. Qual é o volume de água que o tanque pode armazenar em metros cúbicos? (Usa π = 3,14)</p>
             <button class="play-sound-button" onclick="playSound('sound4')"><i class="icon fas fa-volume-up"></i></button>
             <audio id="sound4" src="TEST1.mp3"></audio>
-            <p class="resolution"><strong>Resolução:</strong> A fórmula para encontrar o volume de um cilindro é 
-�
-=
-�
-�
-2
-ℎ
-V=πr 
-2
- h, onde 
-�
-r é o raio e 
-ℎ
-h é a altura.
+            <p class="resolution"><strong>Resolução:</strong> A fórmula para encontrar o volume de um cilindro é V=πr2h onde r é o raio e h é a altura.  
 
-Dado que o diâmetro é 8 metros, o raio (
-r) é a metade do diâmetro, então 
-V
-=
-8
-/
-2
-=
-4
-r=8/2=4 metros.
-
-Substituindo os valores na fórmula:
-V
-=
-3
-,
-14
-×
-(
-4
-2
-)
-×
-10
-V=3,14×(4 
-2
- )×10
-V
-=
-3
-,
-14
-×
-16
-×
-10
-V=3,14×16×10
-V
-=
-502
-,
-4
-V=502,4 metros cúbicos
-
-Portanto, o volume de água que o tanque pode armazenar é 502,4 metros cúbicos.</p>
+                Dado que o diâmetro é 8 metros, o raio (r) é a metade do diâmetro, então r=8/2=4 metros. 
+                
+                Substituindo os valores na fórmula: V=3,14×(42)×10  V=3,14×(42)×10 V=3,14×16×10   V=3,14×16×10 V=502,4 metros cúbicos 
+                
+                Portanto, o volume de água que o tanque pode armazenar é 502,4 metros cúbicos. </p>
         </div>
     </div>
     <script>
@@ -329,10 +268,9 @@ Portanto, o volume de água que o tanque pode armazenar é 502,4 metros cúbicos
         }
     </script>
    <script>
-    // Verifica se há uma cor armazenada localmente
+    
     const storedColor = localStorage.getItem('backgroundColor');
 
-    // Se houver uma cor armazenada, define o fundo com essa cor
     if (storedColor) {
         if (storedColor.startsWith('linear-gradient')) {
             document.body.style.background = storedColor;

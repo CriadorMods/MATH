@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon (1).ico" type="image/x-icon">
     <title>Seleção de Cor de Fundo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -16,6 +15,18 @@
             align-items: center;
             justify-content: center;
             background-color: #f4f4f4; 
+            opacity: 0;
+            animation: fadeIn 0.9s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .container {
@@ -93,6 +104,48 @@
         #color-option-9 {
             background-image: linear-gradient(to right, #e74c3c, #f39c12);
         }
+        .custom-color {
+            margin-top: 20px;
+        }
+
+
+        /* Estilos para o botão de seleção de cor personalizada */
+        .custom-color input[type="color"] {
+            width: 70px;
+            height: 70px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            appearance: none;
+        }
+
+        .custom-color input[type="color"]::-webkit-color-swatch-wrapper {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-color input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-color input[type="color"]:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .custom-color label {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -127,6 +180,14 @@
                 <i class="fas fa-paint-brush"></i>
             </div>
         </div>
+    </div>
+    <div class="custom-color">
+        <input type="color" id="custom-color-picker" onchange="changeBackgroundColor(this.value)">      
+    </div>
+</div>
+
+</div>
+</div>
     </div>
 
     <script>
